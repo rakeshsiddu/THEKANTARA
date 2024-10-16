@@ -1,0 +1,233 @@
+<!DOCTYPE html>
+<html lang="en">
+
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Restaurant Menu</title>
+    <!-- Bootstrap CSS -->
+    <link href="https://stackpath.bootstrapcdn.com/bootstrap/4.5.2/css/bootstrap.min.css" rel="stylesheet">
+    <style>
+        /* Navbar styles */
+        .navbar {
+            background-color: #343a40;
+        }
+
+        .navbar-nav .nav-link {
+            color: white;
+            font-weight: 500;
+        }
+
+        .navbar-nav .nav-link:hover {
+            color: #f8f9fa;
+        }
+
+        /* Fixed Category buttons */
+        .fixed-left {
+            position: fixed;
+            top: 60px;
+            /* Adjust to the height of the navbar */
+            left: 0;
+            height: calc(100vh - 60px);
+            padding: 20px;
+            display: flex;
+            flex-direction: column;
+            justify-content: space-between;
+        }
+
+        .category-btn {
+            width: 100%;
+            text-align: center;
+            margin-bottom: 10px;
+            margin-top: 15px;
+            font-weight: bold;
+        }
+
+        .menu-section {
+            display: none;
+            /* Hide by default */
+        }
+
+        .menu-section.active {
+            display: block;
+            /* Show active section */
+        }
+
+        /* Menu card style */
+        .menu-card {
+            margin-bottom: 20px;
+        }
+
+        .menu-card h5 {
+            font-weight: bold;
+            color: #343a40;
+        }
+
+        .menu-card p {
+            margin: 0;
+            color: #6c757d;
+        }
+
+        .menu-card .price {
+            font-weight: bold;
+            color: #343a40;
+        }
+
+        .menu-card:hover {
+            transform: scale(1.05);
+            transition: all 0.3s ease-in-out;
+        }
+
+        /* Main Content */
+        .main-content {
+            margin-left: 250px;
+        }
+
+        /* Custom styling for the button */
+        .btn-group {
+            border-radius: 30px;
+            padding: 10px 20px;
+            font-size: 18px;
+            position: fixed;
+            bottom: 20px;
+            left: 20px;
+            z-index: 1000;
+            display: inline-block;
+            width: auto;
+            white-space: nowrap;
+        }
+
+        .btn-group:hover {
+            background-color: #555;
+            color: white;
+        }
+
+        .card-text-small {
+            font-size: 0.85rem;
+            line-height: 1.2;
+        }
+
+        body {
+            padding-top: 60px;
+        }
+
+        /* For small screens, adjust the layout */
+        @media (max-width: 768px) {
+            .fixed-left {
+                position: relative;
+                height: auto;
+                top: 0;
+            }
+
+            .main-content {
+                margin-left: 0;
+                padding: 10px;
+            }
+        }
+    </style>
+</head>
+
+<body>
+    <!-- Navbar -->
+    <nav class="navbar navbar-expand-lg navbar-dark fixed-top">
+        <div class="container">
+            <a class="navbar-brand" href="index.html">
+                <img src="logo.jpg" alt="Logo" class="rounded-circle" width="40" height="40">
+            </a>
+            <button class="navbar-toggler" type="button" data-toggle="collapse" data-target="#navbarNav"
+                aria-controls="navbarNav" aria-expanded="false" aria-label="Toggle navigation">
+                <span class="navbar-toggler-icon"></span>
+            </button>
+            <div class="collapse navbar-collapse" id="navbarNav">
+                <ul class="navbar-nav ml-auto">
+                    <li class="nav-item">
+                        <a class="nav-link" href="index.html">Home</a>
+                    </li>
+                    <li class="nav-item">
+                        <a class="nav-link" href="#">Menu</a>
+                    </li>
+                    <li class="nav-item">
+                        <a class="nav-link" href="#">My Orders</a>
+                    </li>
+                    <li class="nav-item">
+                        <a class="nav-link" href="#">Help Desk</a>
+                    </li>
+                </ul>
+            </div>
+        </div>
+    </nav>
+
+    <!-- Main Content -->
+    <div class="container-fluid mt-5 pt-5">
+        <div class="row">
+            <!-- Left Sidebar: Category Buttons -->
+            <div class="col-md-3 fixed-left">
+                <button class="btn btn-dark category-btn" id="starters-btn">Starters</button>
+                <button class="btn btn-dark category-btn" id="main-course-btn">Main Courses</button>
+                <button class="btn btn-dark category-btn" id="desserts-btn">Desserts</button>
+                <div class="flex-grow-1"></div>
+
+                <!-- Cart Buttons at the Bottom -->
+                <a href="index.html" class="btn btn-primary mb-2" style="width: 100%;">Live Cart Price</a>
+                <a href="index.html" class="btn btn-primary" style="width: 100%;">Cart</a>
+            </div>
+
+            <!-- Right side: Menu Items -->
+            <div class="col-md-9">
+                <!-- Starters Section -->
+                <div id="starters-section" class="menu-section active">
+                    <h2 class="text-center">Starters</h2>
+                    <!-- Menu items here -->
+                </div>
+
+                <!-- Main Course Section -->
+                <div id="main-course-section" class="menu-section">
+                    <h2 class="text-center">Main Course</h2>
+                    <!-- Menu items here -->
+                </div>
+
+                <!-- Desserts Section -->
+                <div id="desserts-section" class="menu-section">
+                    <h2 class="text-center">Desserts</h2>
+                    <!-- Menu items here -->
+                </div>
+            </div>
+        </div>
+    </div>
+
+    <!-- Bootstrap JS and dependencies -->
+    <script src="https://code.jquery.com/jquery-3.5.1.slim.min.js"></script>
+    <script src="https://cdn.jsdelivr.net/npm/@popperjs/core@2.9.3/dist/umd/popper.min.js"></script>
+    <script src="https://stackpath.bootstrapcdn.com/bootstrap/4.5.2/js/bootstrap.min.js"></script>
+
+    <script>
+        document.addEventListener("DOMContentLoaded", function () {
+            // Show the starters section by default
+            document.querySelectorAll('.menu-section')[0].classList.add('active');
+
+            // Button click events
+            document.getElementById('starters-btn').addEventListener('click', function () {
+                showSection('starters-section');
+            });
+
+            document.getElementById('main-course-btn').addEventListener('click', function () {
+                showSection('main-course-section');
+            });
+
+            document.getElementById('desserts-btn').addEventListener('click', function () {
+                showSection('desserts-section');
+            });
+
+            // Function to show a specific section
+            function showSection(sectionId) {
+                document.querySelectorAll('.menu-section').forEach(function (section) {
+                    section.classList.remove('active');
+                });
+                document.getElementById(sectionId).classList.add('active');
+            }
+        });
+    </script>
+
+</body>
+
+</html>

@@ -1,0 +1,108 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Card Design with Counting Add Button</title>
+    <link href="https://stackpath.bootstrapcdn.com/bootstrap/4.5.2/css/bootstrap.min.css" rel="stylesheet">
+    <style>
+        body {
+            background-color: #f4f4f4; /* Light background for contrast */
+        }
+
+        .card {
+            position: relative; /* Required for absolute positioning of button */
+            margin: 20px;      /* Spacing between cards */
+            border: none;      /* No border for card */
+            border-radius: 10px; /* Rounded corners */
+            overflow: hidden;  /* Ensures the button doesn't overflow the card */
+        }
+
+        .btn-count {
+            position: absolute; /* Position button relative to the card */
+            bottom: 10px;      /* Position from the bottom */
+            right: 10px;       /* Position from the right */
+            background-color: #28a745; /* Green background */
+            color: white;      /* White text */
+            border: none;      /* No border */
+            border-radius: 50px; /* Rounded corners */
+            padding: 5px 10px; /* Padding for button */
+            cursor: pointer;   /* Pointer cursor on hover */
+            transition: background 0.3s ease; /* Smooth transition */
+        }
+
+        .btn-count:hover {
+            background-color: #218838; /* Darker green on hover */
+        }
+
+        .counter {
+            margin-left: 5px; /* Space between the button text and counter */
+            font-weight: bold; /* Bold counter text */
+        }
+    </style>
+</head>
+<body>
+
+    <div class="container">
+        <div class="row">
+            <!-- Card Example -->
+            <div class="col-md-4">
+                <div class="card">
+                    <img src="https://via.placeholder.com/300" class="card-img-top" alt="Card Image">
+                    <div class="card-body">
+                        <h5 class="card-title">Card Title 1</h5>
+                        <p class="card-text">Some quick example text to build on the card title.</p>
+                        <button class="btn btn-info">Details</button>
+                    </div>
+                    <button class="btn-count">
+                        Add <span class="counter">0</span>
+                    </button>
+                </div>
+            </div>
+
+            <div class="col-md-4">
+                <div class="card">
+                    <img src="https://via.placeholder.com/300" class="card-img-top" alt="Card Image">
+                    <div class="card-body">
+                        <h5 class="card-title">Card Title 2</h5>
+                        <p class="card-text">Some quick example text to build on the card title.</p>
+                        <button class="btn btn-info">Details</button>
+                    </div>
+                    <button class="btn-count">
+                        Add <span class="counter">0</span>
+                    </button>
+                </div>
+            </div>
+
+            <div class="col-md-4">
+                <div class="card">
+                    <img src="https://via.placeholder.com/300" class="card-img-top" alt="Card Image">
+                    <div class="card-body">
+                        <h5 class="card-title">Card Title 3</h5>
+                        <p class="card-text">Some quick example text to build on the card title.</p>
+                        <button class="btn btn-info">Details</button>
+                    </div>
+                    <button class="btn-count">
+                        Add <span class="counter">0</span>
+                    </button>
+                </div>
+            </div>
+        </div>
+    </div>
+
+    <!-- Bootstrap JS and dependencies -->
+    <script src="https://code.jquery.com/jquery-3.5.1.slim.min.js"></script>
+    <script src="https://cdn.jsdelivr.net/npm/@popperjs/core@2.9.3/dist/umd/popper.min.js"></script>
+    <script src="https://stackpath.bootstrapcdn.com/bootstrap/4.5.2/js/bootstrap.min.js"></script>
+    <script>
+        // JavaScript to handle counting
+        document.querySelectorAll('.btn-count').forEach(function(button) {
+            let count = 0;
+            button.addEventListener('click', function() {
+                count++;
+                button.querySelector('.counter').textContent = count; // Update counter text
+            });
+        });
+    </script>
+</body>
+</html>

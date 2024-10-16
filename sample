@@ -1,0 +1,168 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Button Styles</title>
+    <link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/font-awesome/6.0.0-beta3/css/all.min.css"> <!-- For icons -->
+    <style>
+        /* Flat Button */
+        .btn-flat {
+            background-color: #007bff;
+            color: white;
+            border: none;
+            padding: 10px 20px;
+            font-size: 16px;
+            cursor: pointer;
+            border-radius: 4px;
+        }
+        .btn-flat:hover {
+            background-color: #0056b3;
+        }
+
+        /* Outline Button */
+        .btn-outline {
+            background-color: transparent;
+            border: 2px solid #007bff;
+            color: #007bff;
+            padding: 10px 20px;
+            border-radius: 4px;
+            font-size: 16px;
+            cursor: pointer;
+        }
+        .btn-outline:hover {
+            background-color: #007bff;
+            color: white;
+        }
+
+        /* Raised Button */
+        .btn-raised {
+            background-color: #28a745;
+            color: white;
+            padding: 10px 20px;
+            border: none;
+            border-radius: 4px;
+            box-shadow: 0 4px 6px rgba(0, 0, 0, 0.1);
+            cursor: pointer;
+            font-size: 16px;
+        }
+        .btn-raised:hover {
+            background-color: #218838;
+            box-shadow: 0 5px 7px rgba(0, 0, 0, 0.15);
+        }
+
+        /* Ghost Button */
+        .btn-ghost {
+            background-color: transparent;
+            border: 2px solid transparent;
+            color: #343a40;
+            padding: 10px 20px;
+            font-size: 16px;
+            border-radius: 4px;
+            cursor: pointer;
+        }
+        .btn-ghost:hover {
+            border-color: #343a40;
+            color: #000000;
+        }
+
+        /* Icon Button */
+        .btn-icon {
+            background-color: #007bff;
+            color: white;
+            border: none;
+            padding: 10px;
+            font-size: 20px;
+            cursor: pointer;
+            border-radius: 50%;
+            width: 50px;
+            height: 50px;
+            display: inline-flex;
+            align-items: center;
+            justify-content: center;
+        }
+
+        /* Rounded Button */
+        .btn-rounded {
+            background-color: #ff5733;
+            color: white;
+            border: none;
+            padding: 10px 30px;
+            font-size: 16px;
+            border-radius: 50px;
+            cursor: pointer;
+        }
+        .btn-rounded:hover {
+            background-color: #c44221;
+        }
+
+        /* Gradient Button */
+        .btn-gradient {
+            background: linear-gradient(90deg, #ff7e5f, #feb47b);
+            color: white;
+            border: none;
+            padding: 10px 20px;
+            font-size: 16px;
+            border-radius: 4px;
+            cursor: pointer;
+            transition: background 0.3s ease;
+        }
+        .btn-gradient:hover {
+            background: linear-gradient(90deg, #feb47b, #ff7e5f);
+        }
+
+        /* 3D Button */
+        .btn-3d {
+            background-color: #007bff;
+            color: white;
+            padding: 10px 20px;
+            font-size: 16px;
+            border-radius: 4px;
+            box-shadow: 0px 5px 0px #0056b3, 0px 7px 10px rgba(0, 0, 0, 0.2);
+            cursor: pointer;
+        }
+        .btn-3d:active {
+            box-shadow: 0px 2px 0px #0056b3;
+            transform: translateY(3px);
+        }
+
+        /* Pill Button */
+        .btn-pill {
+            background-color: #28a745;
+            color: white;
+            border: none;
+            padding: 10px 30px;
+            font-size: 16px;
+            border-radius: 50px;
+            cursor: pointer;
+        }
+
+        /* Disabled Button */
+        .btn-disabled {
+            background-color: #e0e0e0;
+            color: #a0a0a0;
+            padding: 10px 20px;
+            font-size: 16px;
+            border: none;
+            cursor: not-allowed;
+            opacity: 0.6;
+        }
+    </style>
+</head>
+<body>
+
+    <!-- Button Examples -->
+    <h2>Button Designs</h2>
+    <button class="btn-flat">Flat Button</button>
+    <button class="btn-outline">Outline Button</button>
+    <button class="btn-raised">Raised Button</button>
+    <button class="btn-ghost">Ghost Button</button>
+    <button class="btn-icon"><i class="fas fa-shopping-cart"></i></button>
+    <button class="btn-rounded">Rounded Button</button>
+    <button class="btn-gradient">Gradient Button</button>
+    <button class="btn-3d">3D Button</button>
+    <button class="btn-pill">Pill Button</button>
+    <button class="btn-disabled" disabled>Disabled Button</button>
+
+</body>
+</html>
